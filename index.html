@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+    </head>
+    <body>
+        <script>
+            var correctUsername = "test123";
+            var correctPassword = "test123";
+            $(document).ready(function() {
+                $('#submitform').click(function() {
+                    var user = document.getElementById('usernamein').value;
+                    var pass = document.getElementById('passwordin').value;
+                    console.log("user: " + user + " pass: " + pass)
+                    if (user == null || pass == null) {
+                        document.getElementById('loginerror').innerHTML = "<span style='color:red;'>Username and password are required</span>";
+                    }else if (user === correctUsername && pass === correctPassword) {
+                        document.getElementById('loginerror').innerHTML = "<span style='color:green;'>Login successful!</span>";
+                    }else{
+                        document.getElementById('loginerror').innerHTML = "<span style='color:red;'>Username and/or password are incorect</span>";
+                    }
+                });
+            });
+        </script>
+
+        <h2>Hello welcome to the calculator!</h2>
+
+        <form name="usepassform" id="usepassform">
+            <label for="username">Username:</label>
+            <input type="text" id="usernamein" name="username"><br>
+            <label for="password">Password:</label>
+            <input type="text" id="passwordin" name="password"><br>
+            <input type="button" id="submitform" value="Login">
+        </form>
+
+        <p id="loginerror"></p>
+
+    </body>
+</html>
